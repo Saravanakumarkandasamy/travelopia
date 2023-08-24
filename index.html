@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <title>Travelopia</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        background-color: #fff;
+        padding: 0 20px;
+      }
+
+      header img {
+        height: 75px;
+      }
+      .mobilememu {
+        display: none;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+      }
+
+      nav li {
+        font-size: 16px;
+      }
+
+      nav a {
+        color: #712103;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+      nav a:hover {
+        background: #185274;
+        color: #fff;
+        border-radius: 3px;
+        transition: all 0.5s ease-out;
+      }
+      @media only screen and (max-device-width: 768px) {
+        .mobilememu {
+          display: block;
+        }
+        nav {
+          display: none;
+        }
+        nav.showmobilemenu {
+          display: block;
+          position: absolute;
+          top: 100px;
+          right: 0;
+          background: #fff;
+          z-index: 1;
+          width: 25%;
+          min-width: 200px;
+        }
+        .showmobilemenu ul {
+          display: flex;
+          flex-direction: column;
+          box-shadow: -4px 4px 3px 0px #33333378;
+        }
+        .showmobilemenu li {
+          padding: 7px 0;
+        }
+      }
+      main {
+        width: 100vw;
+        height: calc(100vh - 200px);
+        position: relative;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(245 44 44 / 32%);
+      }
+
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .title {
+        font-size: 4rem;
+        color: #fff;
+        margin-bottom: 1rem;
+        animation: lights 5s 750ms linear infinite;
+      }
+
+      .button {
+        padding: 10px 20px;
+        color: #185274;
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 5px;
+      }
+      .button:hover {
+        box-shadow: 2px 2px 13px 1px #333;
+        transform: scale(1.25);
+        transition: all 0.5s ease-out;
+      }
+      .mt-5 {
+        margin-top: 5px;
+      }
+
+      footer {
+        height: 100px;
+        background-color: #333;
+        color: #fff;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .footer-social-icons {
+        display: flex;
+        gap: 16px;
+      }
+      .footer-social-icons i {
+        color: #fff;
+        font-size: 25px;
+      }
+      @keyframes lights {
+        0% {
+          color: hsl(230, 40%, 80%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+
+        30% {
+          color: hsl(230, 80%, 90%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        40% {
+          color: hsl(230, 100%, 95%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 90%, 0.5),
+            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+        }
+
+        70% {
+          color: hsl(230, 80%, 90%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        100% {
+          color: hsl(230, 40%, 80%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="travelopia_logo.png" alt="Logo" />
+      <a class="mobilememu" onclick="showMobileMenu()"
+        ><i class="fa-solid fa-bars"></i
+      ></a>
+      <nav id="menubar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Brands</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Work with us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main
+      style="
+        background: url('https://res.cloudinary.com/enchanting/q_70,f_auto,c_fill,w_1440,h_585,g_face/travelopia-web/2021/08/USA-Arches-National-Park-UT-e1640034251676.png')
+          no-repeat center center / cover;
+      "
+    >
+      <div class="overlay"></div>
+      <div class="center">
+        <h1 class="title">Travelopia</h1>
+        <button class="button mt-5" onclick="showAlert()">Click Here</button>
+      </div>
+    </main>
+
+    <footer>
+      <span>
+        <i class="fa-regular fa-copyright"></i> 2023 Travelopia. All Rights
+        Reserved.</span
+      >
+      <div class="footer-social-icons">
+        <a href="javascript:void(0)"
+          ><i class="fa-brands fa-square-facebook"></i
+        ></a>
+        <a href="javascript:void(0)"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="javascript:void(0)"
+          ><i class="fa-brands fa-square-x-twitter"></i
+        ></a>
+      </div>
+    </footer>
+
+    <script>
+      function showAlert() {
+        alert("Hello, World");
+      }
+
+      function showMobileMenu() {
+        var element = document.getElementById("menubar");
+        element.classList.toggle("showmobilemenu");
+      }
+    </script>
+  </body>
+</html>
